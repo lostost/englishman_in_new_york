@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+   <div class="col-9 pl-4">
+       <iframe title="book" src="{{url_for('static', filename = file_name)}}" style="width: 95%; height: 55rem;" frameborder="0"></iframe>
+   </div>
+
+   <div class="col-3 pr-4">
+
+       {% for engl, rus in words_dict.items() %}
+            <p class="float-left">{{ engl }} - {{ rus }}</p>
+        {% endfor %}
+   </div>
+</div>
+{% endblock content %}

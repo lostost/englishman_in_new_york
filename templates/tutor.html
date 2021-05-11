@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2 class="h1 text-center w-50 mx-auto mt-4 py-5">
+        <strong>Мы подберем для вас лучших менторов</strong>
+    </h2>
+
+    <div class="text-center mb-5">
+        <div class="btn-group mx-auto mb-0" role="group" aria-label="Basic example">
+            {% for url, title_url in goals.items() %}
+                <a href="#"  type="button" class="btn btn-outline-secondary">{{ title_url }}</button></a>
+            {% endfor %}</div></div>
+
+
+    <h5 class="text-center mb-5">Готовы вам помочь =)</h5>
+    <div class="w-75 m-auto">
+
+        {% for teacher in teachers | teacher_name  %}
+        <div class="card mb-4"><div class="card-body">
+                <div class="row">
+                    <div class="col-3"><img src="{{ teacher.picture|default(image_default) }}" class="img-fluid"></div>
+                        <div class="col-9">
+                            <p class="float-right">Рейтинг: {{ teacher.rating }} Ставка: {{ teacher.price}} / час</p>
+                            <h5>{{ teacher.name }}</h5><p>{{ teacher.about }}</p>
+                            <a href="#" class="btn btn-secondary btn-sm mr-3">Пробный урок</a>
+                            <a href="#" class="btn btn-outline-success btn-sm">Связаться с ментором</a>
+                    </div></div>
+        </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+{% endblock content %}
